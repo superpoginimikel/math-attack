@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3a075ea09b1243de85a57e22fdca96e, type: 3}
   m_Name: DifficultyHard
   m_EditorClassIdentifier: 
-  MinValue: 10
-  MaxValue: 20
-  Time: 5
+  MinValue: 0
+  MaxValue: 100
+  Time: 6
+  NumberOfChoices: 5

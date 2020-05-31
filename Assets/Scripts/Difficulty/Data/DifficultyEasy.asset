@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: DifficultyEasy
   m_EditorClassIdentifier: 
   MinValue: 0
-  MaxValue: 10
-  Time: 3
+  MaxValue: 50
+  Time: 10
+  NumberOfChoices: 4
