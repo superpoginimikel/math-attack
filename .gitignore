@@ -1,0 +1,33 @@
+# =============== #
+# Unity generated #
+# =============== #
+[Tt]emp/
+[Oo]bj/
+[Ll]ibrary/
+sysinfo.txt
+ 
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+[Ee]xported[Oo]bj/
+/*.userprefs
+/*.csproj
+/*.pidb
+/*.suo
+/*.sln*
+/*.user
+/*.unityproj
+/*.booproj
+/*.apk 
+/.vscode
+/.vs/
+*.svd
+*.pdb
+*.tmp
+.consulo/
+
+# =============== #
+# Project related #
+# =============== #
+cdhandroid.keystore
+.gradle
