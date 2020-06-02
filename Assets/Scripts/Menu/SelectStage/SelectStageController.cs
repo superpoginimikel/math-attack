@@ -7,6 +7,8 @@ public class SelectStageController : MonoBehaviour
 {
 #pragma warning disable 0649
     [SerializeField]
+    private LockedPopup lockedGameModePopup;
+    [SerializeField]
     private SelectGameModeButton selectGameModeButtonPrefab;
     [SerializeField]
     private Transform selectGameModeButtonParent;
@@ -18,6 +20,7 @@ public class SelectStageController : MonoBehaviour
     private Button playButton;
 #pragma warning restore 0649
 
+    private List<SelectGameModeButton> selectGameModeButtons = new List<SelectGameModeButton>();
     private List<SelectDifficultyButton> selectDifficultyButtons = new List<SelectDifficultyButton>();
 
     private void Init()
@@ -34,10 +37,13 @@ public class SelectStageController : MonoBehaviour
         foreach (var gameMode in Constants.GameModes)
         {
             var button = Instantiate(selectGameModeButtonPrefab, selectGameModeButtonParent);
+            button.Init(gameMode, gameMode.ToString());
+            button.Clicked += HandleGameModeButtonClicked;
             if (gameMode != GameMode.ADDITION)
             {
                 button.SetLockedState();
             }
+            selectGameModeButtons.Add(button);
         }
     }
 
@@ -56,6 +62,16 @@ public class SelectStageController : MonoBehaviour
                 button.Select();
             }
             index++;
+        }
+    }
+
+    private void HandleGameModeButtonClicked(GameMode gameMode, bool isLocked)
+    {
+        // Set button state
+
+        if (isLocked)
+        {
+            lockedGameModePopup.Show();
         }
     }
 
@@ -88,6 +104,11 @@ public class SelectStageController : MonoBehaviour
 
     private void OnDestroy()
     {
+        foreach (var gameModeButton in selectGameModeButtons)
+        {
+            gameModeButton.Clicked -= HandleGameModeButtonClicked;
+        }
+
         foreach (var difficultyButton in selectDifficultyButtons)
         {
             difficultyButton.Clicked -= HandleDifficultyButtonClicked;

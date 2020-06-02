@@ -22,6 +22,8 @@ public class SelectStageParentButton : MonoBehaviour
     protected Button button;
 #pragma warning restore 0649
 
+    protected bool isStageLocked = false;
+
     public virtual void Select()
     {
         buttonImage.sprite = selectedSprite;
@@ -34,6 +36,7 @@ public class SelectStageParentButton : MonoBehaviour
 
     public virtual void SetLockedState()
     {
+        isStageLocked = true;
         buttonImage.color = lockedColor;
         textMeshPro.color = lockedColor;
         lockedGameObject.SetActive(true);
